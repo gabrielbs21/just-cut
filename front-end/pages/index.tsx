@@ -22,7 +22,12 @@ const Home: NextPage = () => {
     event.preventDefault();
     setLoading(true);
 
-    if (!link.trim()) {
+    // eslint-disable-next-line no-useless-escape
+    const expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+
+    const regex = new RegExp(expression);
+
+    if (!link.trim() || !link.match(regex)) {
       toast.error('Insira um link válido!', {
         position: 'top-center',
         autoClose: 3000,

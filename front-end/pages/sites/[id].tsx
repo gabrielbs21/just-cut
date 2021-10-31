@@ -20,9 +20,12 @@ const Site = () => {
   useEffect(() => {
     async function handle() {
       const { data } = await api.get<SiteResponse>(`/sites/${id}`);
+      let { reference } = data;
 
-      if (data.reference) {
-        window.location.href = data.reference;
+      if (reference) {
+        if (!reference.startsWith('https://')) reference = `https://${reference}`;
+
+        window.location.href = reference;
       }
     }
 

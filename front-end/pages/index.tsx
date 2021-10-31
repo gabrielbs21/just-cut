@@ -61,7 +61,7 @@ const Home: NextPage = () => {
       <main>
         <div className={styles.homePageTitle}>
           <h1>JustCut</h1>
-          <p>Encurta links facilmente</p>
+          <p>Encurte links facilmente</p>
         </div>
 
         <form onSubmit={handleCut} className={styles.cutForm}>
